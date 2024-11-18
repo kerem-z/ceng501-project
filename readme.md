@@ -3,10 +3,10 @@
 ### 2.1. The Original Method
 **Faithfulness Coefficient**  
    <p>
-   \( F = \frac{\sum_{i, j} w_{ij} \cdot \text{sign}(\Delta_i - \Delta_j)}{\sum_{i, j} |w_{ij}|} \)
+   $ F = \frac{\sum_{i, j} w_{ij} \cdot \text{sign}(\Delta_i - \Delta_j)}{\sum_{i, j} |w_{ij}|} $
    </p>
    <p>
-   \( w_{ij} = s(G_i) - s(G_j) \)
+   $ w_{ij} = s(G_i) - s(G_j) $
    </p>
 #### Salience-guided Faithfulness Coefficient (SaCo)
 
