@@ -8,9 +8,8 @@ The core assumption is that salience scores should correlate with the impact of 
 
 1. **Salience Map**:  
    Given an input image $x$, model prediction $y = \hat{f}(x)$, and explanation method $E$, the salience map $M(x)$ assigns a score to each pixel:
-   $$
-   M(x) = \{m_{ij} \mid m_{ij} \in \mathbb{R}, \, \forall (i, j) \in x\}
-   $$
+   $$ M(x) = \{m_{ij} \mid m_{ij} \in \mathbb{R}, \, \forall (i, j) \in x\}$$
+   
    where $m_{ij}$ is the salience score of pixel $(i, j)$.
 
 2. **Subset Partitioning**:  
