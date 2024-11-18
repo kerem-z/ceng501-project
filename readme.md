@@ -1,7 +1,13 @@
 ## 2. The Method and Our Interpretation
 
 ### 2.1. The Original Method
-
+**Faithfulness Coefficient**  
+   <p>
+   \( F = \frac{\sum_{i, j} w_{ij} \cdot \text{sign}(\Delta_i - \Delta_j)}{\sum_{i, j} |w_{ij}|} \)
+   </p>
+   <p>
+   \( w_{ij} = s(G_i) - s(G_j) \)
+   </p>
 #### Salience-guided Faithfulness Coefficient (SaCo)
 
 The core assumption is that salience scores should correlate with the impact of input features on predictions. Mathematically:
