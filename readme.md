@@ -23,9 +23,9 @@ The core assumption is that salience scores should correlate with the impact of 
 
 2. **Subset Partitioning**:  
    Pixels are divided into $K$ subsets $G_k$ based on salience ranking:
-   $
+   ```math
    G_k = \{(i, j) \mid (k-1)\frac{HW}{K} \leq \text{rank}(m_{ij}) < k\frac{HW}{K}\}
-   $
+   ```
    where $HW$ is the total number of pixels.
 
 3. **Perturbation Impact**:  
