@@ -26,6 +26,8 @@ The core assumption is that salience scores should correlate with the impact of 
    ```math
    G_k = \{(i, j) \mid (k-1)\frac{HW}{K} \leq \text{rank}(m_{ij}) < k\frac{HW}{K}\}
    ```
+
+   
    where $HW$ is the total number of pixels.
 
 3. **Perturbation Impact**:  
@@ -37,11 +39,11 @@ The core assumption is that salience scores should correlate with the impact of 
 
 4. **Faithfulness Coefficient**:  
    Compare all pairs of subsets $G_i, G_j$ and accumulate the differences in salience scores:
-   \[
+   ```math
    F = \frac{\sum_{i, j} w_{ij} \cdot \text{sign}(\Delta_i - \Delta_j)}{\sum_{i, j} |w_{ij}|}, \quad w_{ij} = s(G_i) - s(G_j)
-   \]
+    
    $F \in [-1, 1]$, where positive values indicate faithful alignment.
-
+    ```
 ---
 
 ### 2.2. Our Interpretation
