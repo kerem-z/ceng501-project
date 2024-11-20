@@ -1,12 +1,15 @@
 ## 2. The Method and Our Interpretation
-$$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)$$
+
 ```math
 \left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
 ```
 
 ### 2.1. The Original Method
 For example, the formula for faithfulness is
-$F = \frac{\sum_{i, j} w_{ij} \cdot \text{sign}(\Delta_i - \Delta_j)}{\sum_{i, j} |w_{ij}|}$, where $w_{ij} = s(G_i) - s(G_j)$.
+```math
+F= \frac{\sum_{i, j} w_{ij} \cdot \text{sign}(\Delta_i - \Delta_j)}{\sum_{i, j} |w_{ij}|}$, where $w_{ij} = s(G_i) - s(G_j)
+```
+
 
 #### Salience-guided Faithfulness Coefficient (SaCo)
 
