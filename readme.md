@@ -7,7 +7,7 @@
 ### 2.1. The Original Method
 For example, the formula for faithfulness is
 ```math
-F= \frac{\sum_{i, j} w_{ij} \cdot \text{sign}(\Delta_i - \Delta_j)}{\sum_{i, j} |w_{ij}|}, where $w_{ij} = s(G_i) - s(G_j)
+F= \frac{\sum_{i, j} w_{ij} \cdot \text{sign}(\Delta_i - \Delta_j)}{\sum_{i, j} |w_{ij}|}, where w_{ij} = s(G_i) - s(G_j)
 ```
 
 
