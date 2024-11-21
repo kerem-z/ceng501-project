@@ -1,6 +1,6 @@
 # On the Faithfulness of Vision Transformer Explanations
 $$
-M(x) = m_{ij} \mid m_{ij} \in
+M(x) = m_{ij} \leq m_{ij} \in
 $$
 
 
