@@ -80,12 +80,9 @@ $$M(x) = \{m_{ij} \mid m_{ij} \in \mathbb{R}, \, \forall (i, j) \in x\}$$ where 
 
 4. **Faithfulness Coefficient**:  
    Compare all pairs of subsets $G_i, G_j$ and accumulate the differences in salience scores:  
-   $$
-   F = \frac{\sum_{i, j} w_{ij} \cdot \text{sign}(\Delta_i - \Delta_j)}{\sum_{i, j} |w_{ij}|}, \quad w_{ij} = s(G_i) - s(G_j)
-   $$  
-   $$
-   F \in [-1, 1]
-   $$  
+   $$F = \frac{\sum_{i, j} w_{ij} \cdot \text{sign}(\Delta_i - \Delta_j)}{\sum_{i, j} |w_{ij}|}, \quad w_{ij} = s(G_i) - s(G_j)$$
+   
+   $$F \in [-1, 1]$$  
    where positive values indicate faithful alignment.
 
 ---
