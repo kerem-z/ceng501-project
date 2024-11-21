@@ -63,25 +63,27 @@ The core assumption is that salience scores should correlate with the impact of 
 1. **Salience Map**:  
    Given an input image \(x\), model prediction \(y = \hat{f}(x)\), and explanation method \(E\), the salience map \(M(x)\) assigns a score to each pixel:
    $$
-   M(x) = \{m_{ij} \mid m_{ij} \in 
+   
+   M(x) = \{m_{ij} \mid m_{ij} \in
+   
    $$
    where \(m_{ij}\) is the salience score of pixel \((i, j)\).
 
-2. **Subset Partitioning**:  
+3. **Subset Partitioning**:  
    Pixels are divided into \(K\) subsets \(G_k\) based on salience ranking:
    $$
    G_k = \{(i, j) \mid (k-1)\frac{HW}{K} \leq \text{rank}(m_{ij}) < k\frac{HW}{K}\}
    $$
    where \(HW\) is the total number of pixels.
 
-3. **Perturbation Impact**:  
+4. **Perturbation Impact**:  
    Replace pixels in \(G_k\) with their mean value and measure the change in model confidence:
    $$
    \Delta_k = p(y | x) - p(y | R_p(x, G_k))
    $$
    where \(R_p(x, G_k)\) denotes the perturbed image.
 
-4. **Faithfulness Coefficient**:  
+5. **Faithfulness Coefficient**:  
    Compare all pairs of subsets \(G_i, G_j\) and accumulate the differences in salience scores:
    $$
    F = \frac{\sum_{i, j} w_{ij} \cdot \text{sign}(\Delta_i - \Delta_j)}{\sum_{i, j} |w_{ij}|}, \quad w_{ij} = s(G_i) - s(G_j)
