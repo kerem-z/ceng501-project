@@ -77,11 +77,11 @@ $$
    where \(HW\) is the total number of pixels.
 
 4. **Perturbation Impact**:  
-   Replace pixels in \(G_k\) with their mean value and measure the change in model confidence:
+   Replace pixels in \(G_k\) with their mean value and measure the change in model confidence
    $$
    \Delta_k = p(y | x) - p(y | R_p(x, G_k))
    $$
-   where \(R_p(x, G_k)\) denotes the perturbed image.
+   where $\(R_p(x, G_k)\)$ denotes the perturbed image.
 
 5. **Faithfulness Coefficient**:  
    Compare all pairs of subsets \(G_i, G_j\) and accumulate the differences in salience scores:
