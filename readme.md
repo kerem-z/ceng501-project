@@ -1,5 +1,7 @@
 # On the Faithfulness of Vision Transformer Explanations
-
+$$
+M(x) = m_{ij} \mid m_{ij} \in
+$$
 
 
 ## 1. Introduction
