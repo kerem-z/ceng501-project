@@ -1,7 +1,5 @@
 # On the Faithfulness of Vision Transformer Explanations
-$$
-M(x) = m_{ij} \leq m_{ij} \in
-$$
+
 
 
 ## 1. Introduction
@@ -63,31 +61,25 @@ The main contributions of the paper are:
 The core assumption is that salience scores should correlate with the impact of input features on predictions. Mathematically:
 
 1. **Salience Map**:  
-Given an input image $x$, model prediction $y = \hat{f}(x)$, and explanation method $E$, the salience map $M(x)$ assigns a score to each pixel
-$$M(x) = m_{ij} \mid m_{ij} \in$$
+ Given an input image $x$, model prediction $y = \hat{f}(x)$, and explanation method $E$, the salience map $M(x)$ assigns a score to each pixel $$M(x) = \{m_{ij} \mid m_{ij} \in \mathbb{R}, \, \forall (i, j) \in x\} $$
+   where $m_{ij}$ is the salience score of pixel $(i, j)$.
 
-where \(m_{ij}\) is the salience score of pixel \((i, j)\).
+2. **Subset Partitioning**:  
+   Pixels are divided into $K$ subsets $G_k$ based on salience ranking
+   $$ G_k = \{(i, j) \mid (k-1)\frac{HW}{K} \leq \text{rank}(m_{ij}) < k\frac{HW}{K}\}$$
+   where $HW$ is the total number of pixels.
 
-3. **Subset Partitioning**:  
-   Pixels are divided into \(K\) subsets \(G_k\) based on salience ranking:
-   $$
-   G_k = \{(i, j) \mid (k-1)\frac{HW}{K} \leq \text{rank}(m_{ij}) < k\frac{HW}{K}\}
-   $$
-   where \(HW\) is the total number of pixels.
-
-4. **Perturbation Impact**:  
-   Replace pixels in \(G_k\) with their mean value and measure the change in model confidence
+3. **Perturbation Impact**:  
+   Replace pixels in $G_k$ with their mean value and measure the change in model confidence:
    $$
    \Delta_k = p(y | x) - p(y | R_p(x, G_k))
    $$
-   where $\(R_p(x, G_k)\)$ denotes the perturbed image.
+   where \(R_p(x, G_k)\) denotes the perturbed image.
 
-5. **Faithfulness Coefficient**:  
-   Compare all pairs of subsets \(G_i, G_j\) and accumulate the differences in salience scores:
-   $$
-   F = \frac{\sum_{i, j} w_{ij} \cdot \text{sign}(\Delta_i - \Delta_j)}{\sum_{i, j} |w_{ij}|}, \quad w_{ij} = s(G_i) - s(G_j)
-   $$
-   \(F \in [-1, 1]\), where positive values indicate faithful alignment.
+4. **Faithfulness Coefficient**:  
+   Compare all pairs of subsets $G_i, G_j$ and accumulate the differences in salience scores:
+   $$F = \frac{\sum_{i, j} w_{ij} \cdot \text{sign}(\Delta_i - \Delta_j)}{\sum_{i, j} |w_{ij}|}, \quad w_{ij} = s(G_i) - s(G_j)$$
+   $$F \in [-1, 1]$$, where positive values indicate faithful alignment.
 
 ---
 
@@ -102,7 +94,7 @@ where \(m_{ij}\) is the salience score of pixel \((i, j)\).
    SaCo's success with attention-based methods highlights the importance of integrating gradient information and multi-layer attention. We hypothesize that these designs capture more global model behavior.
 
 #### Connections to Related Metrics
-- **Kendall  $\tau$ Statistic**:  
+- **Kendall \( \tau \) Statistic**:  
   SaCo’s pairwise comparisons are inspired by the Kendall \( \tau \) statistic for rank correlation, ensuring robustness in salience evaluations.
 - **Scale Invariance**:  
   Unlike AOPC or AUC, SaCo is unaffected by normalization or scaling of salience scores, ensuring consistent evaluations across methods.
@@ -116,3 +108,19 @@ where \(m_{ij}\) is the salience score of pixel \((i, j)\).
 ## 3.2. Running the code
 
 @TODO: Explain your code & directory structure and how other people can run it.
+
+## 3.3. Results
+
+@TODO: Present your results and compare them to the original paper. Please number your figures & tables as if this is a paper.
+
+# 4. Conclusion
+
+@TODO: Discuss the paper in relation to the results in the paper and your results.
+
+# 5. References
+
+@TODO: Provide your references here.
+
+# Contact
+
+@TODO: Provide your names & email addresses and any other info with which people can contact you.
