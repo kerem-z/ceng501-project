@@ -101,7 +101,7 @@ $$
    SaCo's success with attention-based methods highlights the importance of integrating gradient information and multi-layer attention. We hypothesize that these designs capture more global model behavior.
 
 #### Connections to Related Metrics
-- **Kendall \( \tau \) Statistic**:  
+- **Kendall  $\tau$ Statistic**:  
   SaCo’s pairwise comparisons are inspired by the Kendall \( \tau \) statistic for rank correlation, ensuring robustness in salience evaluations.
 - **Scale Invariance**:  
   Unlike AOPC or AUC, SaCo is unaffected by normalization or scaling of salience scores, ensuring consistent evaluations across methods.
