@@ -1,7 +1,7 @@
 # On the Faithfulness of Vision Transformer Explanations
 
-
-
+![Gradient-Based Explanation](assets/gradcam.gif)
+---
 ![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
 ![Python](https://img.shields.io/badge/python-3.9-blue)
 ![License](https://img.shields.io/badge/license-MIT-orange)
