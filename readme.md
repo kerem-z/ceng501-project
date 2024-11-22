@@ -8,16 +8,16 @@
    - [Explainable AI in Vision Transformers](#12-explainable-ai-and-vision-transformers)
    - [Paper Context and Research Problem](#13-paper-context-and-research-problem)
    - [Project Goals](#14-my-goal)
-2. [Visuals and Examples](#15-visuals-and-examples)
-3. [Methodology](#2-the-method-and-our-interpretation)
+   - [Visuals and Examples](#15-visuals-and-examples)
+2. [Methodology](#2-the-method-and-our-interpretation)
    - [The Paper’s Approach](#21-methodology-the-papers-approach)
    - [Our Interpretation](#22-our-interpretation-evaluating-saco-and-suggestions-for-improvement)
-4. [Experiments and Results](#3-experiments-and-results)
+3. [Experiments and Results](#3-experiments-and-results)
    - [Experimental Setup](#31-experimental-setup)
    - [Results](#32-results)
-5. [Conclusion](#4-conclusion)
-6. [References](#5-references)
-7. [Contact](#6-contact)
+4. [Conclusion](#4-conclusion)
+5. [References](#5-references)
+6. [Contact](#6-contact)
 
 ## 1. Introduction
 
