@@ -2,7 +2,26 @@
 
 
 
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
+![Python](https://img.shields.io/badge/python-3.9-blue)
+![License](https://img.shields.io/badge/license-MIT-orange)
+
+
+
+- [x] **Introduction**
+ 
+- [x] **Methodology**
+  
+- [ ] **Experiments and Results**
+  
+- [ ] **Conclusion**
+- [ ] **References**
+- [x] **Contact Information**
+
+
 ---
+
+
 1. [Introduction](#1-introduction)
    - [Background: Vision Transformers](#11-background-vision-transformers-and-their-rise)
    - [Explainable AI in Vision Transformers](#12-explainable-ai-and-vision-transformers)
@@ -18,6 +37,8 @@
 4. [Conclusion](#4-conclusion)
 5. [References](#5-references)
 6. [Contact](#6-contact)
+
+---
 
 ## 1. Introduction
 
