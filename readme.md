@@ -2,72 +2,95 @@
 
 ## 1. Introduction
 
-### Vision Transformers
-Vision Transformers (ViTs) were introduced by Dosovitskiy et al. in 2021 in the paper *"An Image is Worth 16x16 Words"*. They are different from Convolutional Neural Networks (CNNs) because they use self-attention mechanisms, which were first developed for natural language processing. ViTs break an image into small parts (patches) and process these parts as sequences, similar to how text is processed in language models. 
+### 1.1 Background: Vision Transformers and Their Rise
+Vision Transformers (ViTs) have emerged as a groundbreaking architecture in deep learning for image classification tasks. Unlike Convolutional Neural Networks (CNNs), which rely on local receptive fields to capture spatial patterns, ViTs leverage a **self-attention mechanism** to model global relationships across the entire input image. This key difference allows ViTs to:
+- Capture long-range dependencies between different regions of the image.
+- Adapt flexibly to different input scales and structures.
+- Achieve superior performance on various vision benchmarks when trained on large datasets.
 
-ViTs are powerful and achieve excellent results in tasks like image classification, object detection, and segmentation. However, they are like "black boxes" because it is hard to explain why they make specific decisions. This is a problem for applications like healthcare or self-driving cars, where people need to trust the model's decisions.
+While ViTs have achieved remarkable success, they are considered "black-box" models due to the complexity of the attention mechanism. Understanding **why** and **how** these models make specific predictions is crucial, particularly for safety-critical applications, such as medical imaging or autonomous driving.
 
-### Why Explanation is Important
-Post-hoc explanation techniques are used to understand how ViTs make decisions. One common method is **salience maps**, which assign importance scores to pixels to show which parts of an image influence the model's prediction. 
+### 1.2 Explainable AI and Vision Transformers
+**Explainable AI (XAI)** refers to methods and techniques that make machine learning models more interpretable, ensuring that their decisions are understandable to humans. In the case of ViTs, interpretability is essential for:
+- Building trust in model predictions.
+- Diagnosing model failures.
+- Ensuring fairness and transparency in AI systems.
 
-But there is a problem: these salience maps are often not **faithful**. This means they do not accurately show the true importance of each pixel. Faithfulness is very important because:
-- **Trust**: If the explanations are wrong, people cannot trust the model.
-- **Debugging**: Faithful explanations help fix issues in the model.
-- **Accountability**: Faithful explanations are needed in areas like healthcare or law to justify decisions.
+To achieve this, **post-hoc explanation methods** are employed to generate **salience maps** that highlight the most important regions of an input image, showing which parts of the image influenced the model’s decision the most. These methods can be divided into two primary categories:
+1. **Gradient-based methods**: These methods compute salience scores by calculating gradients with respect to the input image. Examples include:
+   - Integrated Gradients
+   - Grad-CAM
+   - SmoothGrad
+2. **Attention-based methods**: These methods use attention weights from the ViT model to determine the relative importance of different tokens (parts of the image). Examples include:
+   - Raw Attention
+   - Rollout
 
-### The Paper’s Goal
-This paper, *"On the Faithfulness of Vision Transformer Explanations"*, focuses on the problem of faithfulness in salience maps. It introduces a new metric called **Salience-guided Faithfulness Coefficient (SaCo)**, which measures how well salience maps align with the actual behavior of the model. 
+While these techniques help explain model predictions, their **faithfulness**—the degree to which the salience map accurately reflects the model's true decision-making process—remains an open challenge.
 
-### Research Questions
-The paper explores:
-1. Are current metrics for evaluating salience maps good enough to measure faithfulness in ViTs?
-2. How can we define and measure faithfulness in a clear and reliable way?
-3. What changes can make current explanation methods more faithful?
+### 1.3 Paper Context and Research Problem
+The paper that introduces the **Salience-Guided Faithfulness Coefficient (SaCo)** addresses the problem of **faithfulness** in post-hoc explanations for ViTs. Specifically, it focuses on the fact that:
+- Current evaluation metrics, such as those based on cumulative perturbation, fail to properly assess the individual contributions of pixel groups with different salience levels.
+- These metrics also overlook the absolute values of salience scores, focusing only on their relative rankings, which can lead to misleading interpretations.
 
-### Project Goal
-In this project, we will analyze the methods and results in the paper. We will focus on understanding the SaCo metric, comparing it with existing metrics, and exploring how well it works in practice.
+**SaCo** offers a new approach by introducing a pair-wise evaluation of pixel groups based on their salience scores and comparing their impact on the model's predictions. The contributions of the paper include:
+- Proposing a more accurate and **faithful** method for evaluating post-hoc explanations in ViTs.
+- Providing a **robust framework** to assess the true influence of different pixel groups on model predictions, setting a new standard for explainability in ViTs.
+- Demonstrating that **existing methods** often fail to distinguish between meaningful explanations and random attributions, highlighting the need for more reliable evaluation techniques.
+
+### 1.4 My Goal
+The goal of this project is to:
+- **Reproduce the SaCo metric** as described in the paper to verify its reproducibility and reliability.
+- **Explore its application** across different datasets and model architectures to test its generalizability.
+- **Identify potential improvements** to make ViT explanations more faithful, transparent, and useful for real-world applications.
+
+---
+
+### 1.5 Challenges and Motivation
+
+#### 1.5.1 Faithfulness in Explanations
+The central challenge in explainability for ViTs is ensuring that the **salience scores** truly reflect the impact of different parts of the image on the model’s predictions. Existing explanation methods have significant limitations:
+- **Cumulative perturbation** techniques fail to isolate the effects of individual salience levels, blending the influences of various pixel groups.
+- **Absolute salience values** are ignored, and only relative rankings are considered, which can distort the actual impact of different image regions.
+
+These limitations result in unreliable and unfaithful explanations, leading to potential misinterpretations of the model's decision-making process. This is particularly concerning for real-world applications where understanding the model's behavior is critical.
+---
+
+## Visuals and Examples
+
+### 1.6 ViT Architecture Overview
+Below is a simplified diagram of the Vision Transformer architecture, showing how the self-attention mechanism processes input image patches to form a global representation.
+
+![ViT Architecture](path/to/vit-architecture-image.png)
+
+### 1.7 Post-hoc Explanation Methods
+
+#### Gradient-based Explanation Example
+This heatmap demonstrates how a **Gradient-based method** (e.g., Integrated Gradients) highlights the regions of an image most relevant to the model's decision.
+
+![Gradient-Based Explanation](path/to/gradient-example.png)
+
+#### Attention-based Explanation Example
+This image shows the salience map generated by using **attention weights** from a ViT model. The map indicates which image tokens (patches) the model paid attention to the most when making a prediction.
+
+![Attention-Based Explanation](path/to/attention-example.png)
+
+### 1.8 Comparison of Explanation Methods
+
+| Method          | Approach           | Strengths                  | Weaknesses                      |
+|-----------------|--------------------|----------------------------|----------------------------------|
+| Gradient-based  | Uses gradients     | Precise, detailed          | Computationally expensive       |
+| Attention-based | Uses attention     | Intuitive for ViTs         | May not always align with true model behavior|
 
 ---
 
-## 1.1 Paper Summary
+## 2. Challenges and Motivation
 
-### Main Contributions of the Paper
-1. **A New Metric (SaCo)**:
-   - SaCo measures how well salience scores represent the true influence of pixels.
-   - It avoids common problems with older metrics like AUC and AOPC by comparing individual pixel groups instead of cumulative effects.
+### 2.1 Faithfulness in Explanations
+The central challenge in explainability for ViTs is ensuring that the **salience scores** truly reflect the impact of different parts of the image on the model’s predictions. Existing explanation methods have significant limitations:
+- **Cumulative perturbation** techniques fail to isolate the effects of individual salience levels, blending the influences of various pixel groups.
+- **Absolute salience values** are ignored, and only relative rankings are considered, which can distort the actual impact of different image regions.
 
-2. **Experimental Findings**:
-   - The paper tests SaCo on popular ViT models (ViT-B, ViT-L, and DeiT-B) and datasets (CIFAR-10, CIFAR-100, and ImageNet).
-   - Results show that:
-     - Current metrics often fail to differentiate between good explanations and random noise.
-     - Explanation methods that combine attention information with gradients and multi-layer analysis perform better.
-
-3. **Theoretical Basis**:
-   - SaCo is based on comparing pixel subsets using statistical techniques like the Kendall τ correlation.
-   - It ensures results are reliable regardless of how salience scores are scaled or ordered.
-
-### Key Observations
-- Many current explanation methods do not meet the faithfulness standard.
-- Random explanations often score as well as real explanation methods under older metrics, which is a problem.
-- Attention-based explanation methods can be improved by combining gradient information and analyzing multiple layers.
-
----
-### 1.2. Related Work
-
-#### Post-hoc Explanation Methods
-1. **Gradient-based Methods**: 
-   - *Integrated Gradients* (Sundararajan et al., 2017) and *Grad-CAM* (Selvaraju et al., 2017) use gradients to assign salience scores.
-   - **Limitations**: Dependence on local gradients, which may not reflect the model's global reasoning.
-2. **Attribution-based Methods**:
-   - *Layer-wise Relevance Propagation* (Binder et al., 2016) propagates relevance scores through layers.
-3. **Attention-based Methods**:
-   - Methods like *Raw Attention*, *Rollout*, and *ATTCAT* utilize attention weights as explanations.
-
-#### Faithfulness Evaluation Metrics
-- **AUC**: Measures model performance under cumulative pixel removal.
-- **AOPC**: Quantifies output variations after perturbation.
-- **Comprehensiveness**: Measures importance of pixels with lower salience.
-- **Limitations**: These metrics do not evaluate the magnitude differences between salience subsets, failing to validate faithfulness.
+These limitations result in unreliable and unfaithful explanations, leading to potential misinterpretations of the model's decision-making process. This is particularly concerning for real-world applications where understanding the model's behavior is critical.
 
 ## 2. The Method and Our Interpretation
 
